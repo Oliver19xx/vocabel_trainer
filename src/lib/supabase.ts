@@ -4,9 +4,12 @@ import { SupabaseConfig } from '../types';
 const STORAGE_URL_KEY = 'vokabel_supabase_url';
 const STORAGE_ANON_KEY = 'vokabel_supabase_anon_key';
 
+const DEFAULT_URL = 'https://ygtjkrkmmbpubuhpoqcc.supabase.co';
+const DEFAULT_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlndGprcmttbWJwdWJ1aHBvcWNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgxMTc3ODQsImV4cCI6MjEwMzY5Mzc4NH0.fygweFujhfFW276POLZsy521zTxx7lP_RehbqWze9ik';
+
 export function getStoredSupabaseConfig(): SupabaseConfig {
-  const envUrl = import.meta.env.VITE_SUPABASE_URL || '';
-  const envKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
+  const envUrl = import.meta.env.VITE_SUPABASE_URL || DEFAULT_URL;
+  const envKey = import.meta.env.VITE_SUPABASE_ANON_KEY || DEFAULT_KEY;
 
   const storedUrl = localStorage.getItem(STORAGE_URL_KEY) || envUrl;
   const storedKey = localStorage.getItem(STORAGE_ANON_KEY) || envKey;
