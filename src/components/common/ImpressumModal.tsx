@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, ShieldCheck, FileText, ExternalLink, Mail, User, Info } from 'lucide-react';
+import { X, ShieldCheck, FileText, ExternalLink, User, Info } from 'lucide-react';
 
 interface ImpressumModalProps {
   isOpen: boolean;
@@ -73,27 +73,29 @@ export const ImpressumModal: React.FC<ImpressumModalProps> = ({ isOpen, onClose 
                   <User size={16} className="text-indigo-400" />
                   <span>Angaben gemäß § 5 TMG / § 18 MStV</span>
                 </h4>
-                <div className="p-4 rounded-2xl bg-slate-950/50 border border-slate-800/80 space-y-1.5">
-                  <p className="font-semibold text-white">Oliver Werner</p>
-                  <p className="text-slate-400">Software-Entwickler &amp; Projektbetreiber</p>
-                  <div className="pt-2 flex items-center gap-2 text-slate-300">
-                    <Mail size={14} className="text-indigo-400 shrink-0" />
-                    <a
-                      href="mailto:oliver.werner94@gmail.com"
-                      className="text-indigo-400 hover:underline"
-                    >
-                      oliver.werner94@gmail.com
-                    </a>
+                <div className="p-4 rounded-2xl bg-slate-950/50 border border-slate-800/80 space-y-2.5">
+                  <div>
+                    <p className="font-semibold text-white">Oliver Werner</p>
+                    <p className="text-slate-400">Software-Entwickler &amp; Projektbetreiber</p>
                   </div>
-                  <div className="flex items-center gap-2 text-slate-300">
-                    <ExternalLink size={14} className="text-indigo-400 shrink-0" />
+                  <div className="pt-1 flex flex-col sm:flex-row gap-2.5">
                     <a
-                      href="https://github.com/Oliver19xx/vocabel_trainer"
+                      href="https://github.com/Oliver19xx/vocabel_trainer/issues"
                       target="_blank"
                       rel="noreferrer"
-                      className="text-indigo-400 hover:underline"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-950/60 border border-indigo-800/50 text-indigo-300 hover:text-white hover:bg-indigo-900/60 transition-colors"
                     >
-                      github.com/Oliver19xx/vocabel_trainer
+                      <ExternalLink size={14} className="text-indigo-400 shrink-0" />
+                      <span>Kontakt &amp; Support via GitHub Issues</span>
+                    </a>
+                    <a
+                      href="https://github.com/Oliver19xx"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
+                    >
+                      <ExternalLink size={14} className="text-slate-400 shrink-0" />
+                      <span>GitHub Profil (Oliver19xx)</span>
                     </a>
                   </div>
                 </div>
