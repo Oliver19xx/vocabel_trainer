@@ -7,6 +7,7 @@ import { StudySession } from './components/study/StudySession';
 import { StatsDashboard } from './components/stats/StatsDashboard';
 import { SettingsModal } from './components/common/SettingsModal';
 import { LoginModal } from './components/auth/LoginModal';
+import { ImpressumModal } from './components/common/ImpressumModal';
 import { Deck } from './types';
 import { Loader2 } from 'lucide-react';
 
@@ -19,6 +20,7 @@ const AppContent: React.FC = () => {
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isImpressumOpen, setIsImpressumOpen] = useState(false);
 
   const handleSelectDeck = (deck: Deck) => {
     setSelectedDeck(deck);
@@ -93,9 +95,19 @@ const AppContent: React.FC = () => {
 
       {/* Footer */}
       <footer className="w-full border-t border-slate-900 py-6 text-center text-xs text-slate-500">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span>&copy; {new Date().getFullYear()} VokabelTrainer &bull; Active Recall & Spaced Repetition</span>
-          <span>Gehostet auf GitHub Pages &bull; Supabase & Google Auth</span>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => setIsImpressumOpen(true)}
+              className="text-slate-400 hover:text-indigo-400 underline underline-offset-2 transition-colors cursor-pointer"
+            >
+              Impressum &amp; Datenschutz
+            </button>
+            <span>&bull;</span>
+            <span>Gehostet auf GitHub Pages</span>
+          </div>
         </div>
       </footer>
 
@@ -109,6 +121,11 @@ const AppContent: React.FC = () => {
         isOpen={isLoginOpen}
         onClose={() => setIsLoginOpen(false)}
         onOpenSettings={() => setIsSettingsOpen(true)}
+      />
+
+      <ImpressumModal
+        isOpen={isImpressumOpen}
+        onClose={() => setIsImpressumOpen(false)}
       />
     </div>
   );
